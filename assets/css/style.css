@@ -9,19 +9,18 @@
     display: flex;
     flex-wrap: wrap;
 }
-
-/* /* button{
+button{
     padding: 1rem;
     background-color: red;
     color: white;
-}  */
- 
+}
+
 .cell{
     width: calc(100% / 10);
     aspect-ratio: 1/1;
     border: 1px solid black;
 }
 
-.green{
-    background-color: green;
+.lightblue{
+    background-color: lightblue;
 }

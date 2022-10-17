@@ -46,7 +46,7 @@ for (let i = 0; i < cellNumbers ; i++) {
  for (let i = 0; i < cellList.length; i++) {
     const selectedCell = cellList[i];
     selectedCell.addEventListener(`click`, function () {
-    selectedCell.classList.toggle(`green`)
+    selectedCell.classList.toggle(`lightblue`)
         
     })
 }
