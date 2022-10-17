@@ -12,14 +12,20 @@
 // Quando l'utente clicca su ogni cella, la cella cliccata si colora di azzurro ed emetto un messaggio in console con il numero della cella cliccata.
 
 // selezioniamo il  bottone 
-const buttonElement = document.querySelector(`button`)
+const buttonElement = document.querySelector(`button`);
 
 
 // Al clic attraverso addventlistner il bottone deve scomparire 
-// buttonElement.addEventListener(`click`, function () {
-//     console.log(`Ho cliccato sul pulsante`);
-    
-// })
+buttonElement.addEventListener(`click`, function () {
+    console.log(`Ho cliccato sul pulsante`);
+
+    // seleziono la classe container 
+    // tolgo il display none dalla classe container
+    const removeNone = document.querySelector(`.container`).classList.remove(`active`);
+    console.log(removeNone);
+    const addNone = document.querySelector(`button`).classList.add(`none`);
+    console.log(addNone);   
+})
 
 
 // Generare una gliglia di gioco 
@@ -28,20 +34,22 @@ const buttonElement = document.querySelector(`button`)
     // Creiamo una constante con il markup da inserire nell'HTML 
     // Una variabile con i numeri delle celle 
  
-const containerElement = document.querySelector(`.container`)
+const containerElement = document.querySelector(`.container`);
 
 const cell = `<div class="cell"></div>`
 
 let cellNumbers = 100
 
-let cellList = document.getElementsByClassName(`cell`)
+let cellList = document.querySelectorAll(`cell`);
 
 // funzione
 
-for (let i = 0; i < cellNumbers ; i++) {
-    containerElement.innerHTML += cell
-        
+ for (let i = 0; i < cellNumbers ; i++) {
+    containerElement.insertAdjacentHTML(`beforeend`,`<div class="cell"></div>`);
+    
  }
+        
+ 
 
  for (let i = 0; i < cellList.length; i++) {
     const selectedCell = cellList[i];
