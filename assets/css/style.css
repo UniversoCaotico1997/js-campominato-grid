@@ -1,0 +1,27 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+} 
+.container{
+    width: 1000px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* /* button{
+    padding: 1rem;
+    background-color: red;
+    color: white;
+}  */
+ 
+.cell{
+    width: calc(100% / 10);
+    aspect-ratio: 1/1;
+    border: 1px solid black;
+}
+
+.green{
+    background-color: green;
+}
