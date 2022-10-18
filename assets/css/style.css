@@ -3,9 +3,16 @@
     padding: 0;
     box-sizing: border-box;
 } 
+.container{
+    max-width: 80%;
+    margin: 1rem auto;
+    display: flex;
+    justify-content: space-around;
+    font-family:'Times New Roman', Times, serif
+}
 button{
     padding: 0.75rem;
-    background-color: red;
+    background-color:orange;
     color: white;
 }
 
@@ -31,3 +38,4 @@ main{
 .lightblue{
     background-color: lightblue;
 }
+

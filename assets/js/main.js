@@ -22,47 +22,33 @@ let cellNumbers = 100
 
 
 // Al clic attraverso addventlistner il bottone deve generare un griglia 
+// Ogni cella ha un numero progressivo, da 1 a 100.
+    // Generiamo dei numeri da 1 a 100 
 
 buttonElement.addEventListener(`click`,function () {
-    console.log(`Ho cliccato sul pulsante`);
+    // console.log(`Ho cliccato sul pulsante`);
 
-    for (let i = 0; i < cellNumbers; i++) {
+    for (let i = 1; i <= cellNumbers; i++) {
         // console.log(cellNumbers);
         // creiamo il nostro markup attraverso una costante  da inserire nella dom 
-        let cellElement = `<div class="cell"></div>`
-
+        let cellElement = `<div class="cell">${i}</div>`
         // Utilizziamo insertAd
-        gridElement.insertAdjacentHTML('beforeend', cellElement) 
+        gridElement.insertAdjacentHTML('beforeend', cellElement); 
+    }    
+    // Quando l'utente cliccherà sulla cella essa si deve colorare di blu
+       // selezionare la singola cella
+       // vedere se la cessa selezionata corrisponda 
+       const singleCell = document.querySelector(`.cell`);
+       // console.log(singleCell);
 
-    }
-    // Ogni cella ha un numero progressivo, da 1 a 100.
-        // Generiamo dei numeri da 1 a 100 
-        // Creiamo un arry 
-     const numbersInsideTheCells = []
+       // utliazziamo un eventListner 
+         // aggiungo un event listener alla cella selezionata
+        singleCell.addEventListener(`click`,function () {
+        console.log(`ho cliccato`);
+         // al click la cella si colorerà di blu
+        singleCell.classList.toggle(`lightblue`)
+        })  
 
-     for (let i = 0; i < numbersInsideTheCells.length; i++) {
-         const allNumbers = numbersInsideTheCells[i];
-         console.log(allNumbers);
-         allNumbers.addEventListener(`click`, function () {
-         allNumbers.classList.toggle(`lightblue`)
-         })
+})    
 
-
-        
-     }
-    
-    
-    
-     // Quando l'utente cliccherà sulla cella essa si deve colorare di blu
-        // selezioniamo la singola cella
-        // utliazziamo un eventListner 
-        // - aggiungo un event listener alla cella selezionata
-    // cellElement.addEventListener(`click`, function () {
-    //     this.style.backgroundColor = 'lightblue'
-    //     this.classList.toggle('active')
-    // })
-})
-   
-
-    
     
