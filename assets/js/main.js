@@ -1,8 +1,8 @@
 // L'utente clicca su un bottone 
     //Craere un bottone su html 
     // selezioniamo il  bottone 
-    // Al clic attraverso addventlistner il bottone deve scomparire 
-    // Per far spazio ad una grglia 
+    // Al clic attraverso addventlistner il bottone deve
+    // Generare una grglia 
 
 
 
@@ -14,51 +14,55 @@
 // selezioniamo il  bottone 
 const buttonElement = document.querySelector(`button`);
 
+// Selezioniamo il conatiner dalla DOM 
+const gridElement = document.querySelector(`.grid`);
 
-// Al clic attraverso addventlistner il bottone deve scomparire 
-buttonElement.addEventListener(`click`, function () {
-    console.log(`Ho cliccato sul pulsante`);
-
-    // seleziono la classe container 
-    // tolgo il display none dalla classe container
-    const removeNone = document.querySelector(`.container`).classList.remove(`active`);
-    console.log(removeNone);
-    const addNone = document.querySelector(`button`).classList.add(`none`);
-    console.log(addNone);   
-})
-
-
-// Generare una gliglia di gioco 
-    // Selezioniamo il conatiner dalla DOM 
-    // Attraverso il queryselctor 
-    // Creiamo una constante con il markup da inserire nell'HTML 
-    // Una variabile con i numeri delle celle 
- 
-const containerElement = document.querySelector(`.container`);
-
-const cell = `<div class="cell"></div>`
-
+// Una variabile con i numeri delle celle 
 let cellNumbers = 100
 
-let cellList = document.querySelectorAll(`cell`);
 
-// funzione
+// Al clic attraverso addventlistner il bottone deve generare un griglia 
 
- for (let i = 0; i < cellNumbers ; i++) {
-    containerElement.insertAdjacentHTML(`beforeend`,`<div class="cell"></div>`);
-    
- }
+buttonElement.addEventListener(`click`,function () {
+    console.log(`Ho cliccato sul pulsante`);
+
+    for (let i = 0; i < cellNumbers; i++) {
+        // console.log(cellNumbers);
+        // creiamo il nostro markup attraverso una costante  da inserire nella dom 
+        let cellElement = `<div class="cell"></div>`
+
+        // Utilizziamo insertAd
+        gridElement.insertAdjacentHTML('beforeend', cellElement) 
+
+    }
+    // Ogni cella ha un numero progressivo, da 1 a 100.
+        // Generiamo dei numeri da 1 a 100 
+        // Creiamo un arry 
+     const numbersInsideTheCells = []
+
+     for (let i = 0; i < numbersInsideTheCells.length; i++) {
+         const allNumbers = numbersInsideTheCells[i];
+         console.log(allNumbers);
+         allNumbers.addEventListener(`click`, function () {
+         allNumbers.classList.toggle(`lightblue`)
+         })
+
+
         
- 
-
- for (let i = 0; i < cellList.length; i++) {
-    const selectedCell = cellList[i];
-    selectedCell.addEventListener(`click`, function () {
-    selectedCell.classList.toggle(`lightblue`)
-        
-    })
-}
-
+     }
+    
+    
+    
+     // Quando l'utente cliccherà sulla cella essa si deve colorare di blu
+        // selezioniamo la singola cella
+        // utliazziamo un eventListner 
+        // - aggiungo un event listener alla cella selezionata
+    // cellElement.addEventListener(`click`, function () {
+    //     this.style.backgroundColor = 'lightblue'
+    //     this.classList.toggle('active')
+    // })
+})
+   
 
     
-
+    
