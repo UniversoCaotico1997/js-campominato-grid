@@ -1,43 +1,73 @@
-// L'utente clicca su un bottone 
-// selezioniamo il  bottone 
-// Al clic attraverso addventlistner il bottone deve
-// Generare una grglia 
-// che genererà una griglia di gioco quadrata. 
-// Ogni cella ha un numero progressivo, da 1 a 100.
-// Ci saranno quindi 10 caselle per ognuna delle 10 righe.
-// Quando l'utente clicca su ogni cella, la cella cliccata si colora di azzurro ed emetto un messaggio in console con il numero della cella cliccata.
+// Creaiamo una griglia dinamica con all'interno dei numeri casuali 
+// al click la casella deve cambiare colore, se il numero
+// al suo interno è pari diventerà rosso altirmimenti 
+// blu se dispari 
 
-// selezioniamo il  bottone 
-const buttonElement = document.querySelector(`button`);
+const elContainer = document.querySelector('.container')
 
-// Selezioniamo il conatiner dalla DOM 
-const gridElement = document.querySelector(`.grid`);
-
-// Una variabile con i numeri delle celle 
-let cellNumbers = 100
+let numberCell = 50
 
 
-// Al clic attraverso addventlistner il bottone deve generare un griglia 
-// Ogni cella ha un numero progressivo, da 1 a 100.
-// Generiamo dei numeri da 1 a 100 
+//Function genera numeri all'interno della cella 
+function generateCellNumber(min, max) {
+    const arrayNumbers = []
+    while (arrayNumbers.length !== max) {
 
+        const randomNumber = generateRandomNumber(min, max)
 
-buttonElement.addEventListener('click', function () {
-    // Puliamo la griglia prima di rigenerarla
-    gridElement.innerHTML = '';
+        if (!arrayNumbers.includes(randomNumber)) {
+            arrayNumbers.push(randomNumber)
+        }
 
-    // Generiamo la griglia
-    for (let i = 1; i <= cellNumbers; i++) {
-        const cell = document.createElement('div');
-        cell.classList.add('cell');
-        cell.textContent = i;
-
-        // Al click, cambia colore e stampa il numero
-        cell.addEventListener('click', function () {
-            cell.classList.toggle('lightblue');
-            console.log(`Hai cliccato sulla cella numero ${i}`);
-        });
-
-        gridElement.appendChild(cell);
     }
-});
+    return arrayNumbers
+}
+
+
+
+// Funzione Markup
+function generateMarkup(number) {
+    const circleElement = document.createElement('div')
+    circleElement.className = 'circle'
+    circleElement.innerText = number
+    return circleElement
+}
+
+// Funzione generatore di celle 
+function generateGrid(max, domEl) {
+    const cellNumbers = generateCellNumber(1, numberCell)
+    for (let i = 0; i < max; i++) {
+        const thisNumber = cellNumbers[i]
+        const cellElement = generateMarkup(thisNumber)
+        console.log(cellElement);
+        domEl.insertAdjacentElement('beforeend', cellElement)
+        // selezioniamo la cella corrente e la coloriamo 
+        cellElement.addEventListener('click', function () {
+            console.log('ho cliccato');
+            if (pariDispari(thisNumber)) {
+                cellElement.classList.toggle('red')
+                console.log(`ho cliccato la casella ${thisNumber}`);
+            } else {
+                cellElement.classList.toggle('blue')
+                console.log(`ho cliccato la casella ${thisNumber}`);
+            }
+        })
+    }
+}
+
+// Funzione pari dispari
+function pariDispari(numb) {
+    if (numb % 2 === 0) {
+        return true
+    }
+    return false
+}
+
+// funzione Generatore di numeri random 
+function generateRandomNumber(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+
+
+generateGrid(numberCell, elContainer)

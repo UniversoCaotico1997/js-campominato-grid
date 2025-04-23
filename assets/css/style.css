@@ -4,38 +4,29 @@
     box-sizing: border-box;
 }
 
+
+
 .container {
-    max-width: 80%;
-    margin: 1rem auto;
-    display: flex;
-    justify-content: space-around;
-    font-family: 'Times New Roman', Times, serif
-}
-
-button {
-    padding: 0.75rem;
-    background-color: orange;
-    color: white;
-}
-
-
-.grid {
-    max-width: 1000px;
-    margin: auto;
     display: flex;
     flex-wrap: wrap;
-    background-color: aquamarine;
 }
 
-.cell {
-    width: calc(100% / 10);
-    aspect-ratio: 1/1;
-    border: 1px solid black;
+
+.circle {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100px;
+    height: 100px;
+    border: 1px solid black;
+    border-radius: 50px;
+    margin: 0.50rem;
 }
 
-.lightblue {
-    background-color: lightblue;
+.red {
+    background-color: red;
+}
+
+.blue {
+    background-color: blue;
 }
